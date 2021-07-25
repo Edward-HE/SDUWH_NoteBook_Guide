@@ -24,7 +24,7 @@
                 search: {
                     placeholder: "搜索...",
                 },
-                repo: "",
+                repo: "https://github.com/Edward-HE/SDUWH_NoteBook_Guide",
                 loadSidebar: true,
                 auto2top: true,
                 logo: "",
@@ -39,6 +39,24 @@
                     crossChapter: true,
                     crossChapterText: true,
                 },
+                plugins: [
+                    function (hook, vm) {
+                        hook.beforeEach(function (html) {
+                            var url =
+                                "https://github.com/Edward-HE/SDUWH_NoteBook_Guide/tree/main/docs/" +
+                                vm.route.file;
+                            var editHtml = "[📝 编辑本文](" + url + ")\n";
+
+                            return (
+                                "<span>更新日期 {docsify-updated}</span> " +
+                                "\n" +
+                                html +
+                                "\n----\n" +
+                                editHtml
+                            );
+                        });
+                    },
+                ],
             };
         </script>
         <!-- Docsify v4 -->
