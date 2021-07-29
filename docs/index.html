@@ -81,7 +81,7 @@
             href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css"
         />
         <script>
-            const gitalk = new Gitalk({
+            let props = {
                 clientID: "5e4838ffe93aef0aea27",
                 clientSecret: "3b8597b3d120e99cfcf57cbe2a20cb2e4e63cb62",
                 repo: "SDUWH_NB_Guide_Comments",
@@ -90,7 +90,7 @@
                 // facebook-like distraction free mode
                 distractionFreeMode: false,
                 id: decodeURI(location.hash.split("?")[0]),
-            });
+            };
             let gitalk = new Gitalk(props);
             // 哈希路由切换时 重新加载Gitalk
             window.addEventListener("hashchange", onHashChange);
